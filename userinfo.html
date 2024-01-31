@@ -1,0 +1,25 @@
+<?php
+$con=mysqli_connect('localhost','root');
+if($con){
+	echo "connection successful";
+}
+else{
+	echo "not connected";
+}
+mysqli_select_db($con,'dhawan_computers');
+$studentname = $_POST['sname'];
+$fathername = $_POST['fname'];
+$dateofbirth = $_POST['dname'];
+$city = $_POST['cname'];
+$state = $_POST['stname'];
+$pincode = $_POST['pname'];
+$gendername = $_POST['gender'];
+$mobilenumber = $_POST['mname'];
+
+
+$query = "insert into studentinformation(student_name,father_name,dateofbirth,city,state,pincode,gender,mobile)
+values('$studentname','$fathername','$dateofbirth','$city','$state','$pincode','$gendername', '$mobilenumber'S)";
+
+mysqli_query($con, $query);
+header('location:questionanswers.html');
+?>  
